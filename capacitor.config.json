@@ -1,0 +1,28 @@
+{
+  "appId": "io.trackrone.app",
+  "appName": "Trackr One",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "launchAutoHide": true,
+      "backgroundColor": "#1a1a1a",
+      "androidSplashResourceName": "splash"
+    },
+    "StatusBar": {
+      "style": "dark"
+    },
+    "Keyboard": {
+      "resize": "body",
+      "style": "dark",
+      "resizeOnFullScreen": true
+    },
+    "Haptics": {},
+    "Device": {},
+    "Network": {},
+    "App": {}
+  }
+}

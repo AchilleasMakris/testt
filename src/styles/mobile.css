@@ -1,0 +1,166 @@
+/* Mobile-specific styles for Capacitor apps */
+
+/* Safe area support for iOS */
+:root {
+  --sat: env(safe-area-inset-top);
+  --sar: env(safe-area-inset-right);
+  --sab: env(safe-area-inset-bottom);
+  --sal: env(safe-area-inset-left);
+}
+
+/* iOS status bar spacing */
+.ios-safe-area-top {
+  padding-top: max(1rem, env(safe-area-inset-top));
+}
+
+.ios-safe-area-bottom {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* Android navigation bar spacing */
+.android-nav-bar {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Mobile touch improvements */
+.mobile-touch {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Better touch targets for mobile */
+.mobile-button {
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+}
+
+/* Prevent bounce scrolling on iOS */
+.no-bounce {
+  overscroll-behavior: none;
+}
+
+/* Full height for mobile apps */
+.mobile-full-height {
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height */
+}
+
+/* Smooth scrolling for mobile */
+.mobile-scroll {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbars on mobile for cleaner look */
+.mobile-no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.mobile-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile-optimized form inputs */
+.mobile-input {
+  font-size: 16px; /* Prevents zoom on iOS */
+  border-radius: 8px;
+}
+
+/* Mobile-friendly modals */
+.mobile-modal {
+  margin: 0;
+  max-height: 100vh;
+  border-radius: 16px 16px 0 0;
+}
+
+/* Android back button ripple effect */
+.android-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.android-ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.android-ripple:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* iOS-style blur backdrop */
+.ios-blur {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Capacitor specific body styles */
+body.capacitor {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Prevent text selection in mobile apps */
+.mobile-app * {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection for inputs and content areas */
+.mobile-app input,
+.mobile-app textarea,
+.mobile-app [contenteditable],
+.mobile-app .selectable-text {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* Mobile navigation bar height */
+.mobile-nav-height {
+  height: 60px;
+}
+
+/* Bottom tab bar safe area */
+.mobile-tab-bar {
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Dark mode mobile optimizations */
+@media (prefers-color-scheme: dark) {
+  .mobile-tab-bar {
+    background: rgba(0, 0, 0, 0.95);
+  }
+  
+  .ios-blur {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Portrait orientation optimizations */
+@media screen and (orientation: portrait) {
+  .portrait-only {
+    display: block;
+  }
+  
+  .landscape-only {
+    display: none;
+  }
+}
